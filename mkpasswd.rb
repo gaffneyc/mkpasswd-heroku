@@ -24,11 +24,7 @@ class Mkpasswd < Sinatra::Base
     File.read(File.expand_path("../public/index.html", __FILE__))
   end
 
-  get "/shadow" do
-    redirect "/"
-  end
-
-  post "/shadow" do
+  post "/" do
     password = params[:password]
     password.crypt("$6$#{SaltGenerator.generate}$")
   end
