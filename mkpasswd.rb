@@ -2,6 +2,7 @@ require "bundler/setup"
 
 require "sinatra/base"
 require "securerandom"
+require "rack/ssl"
 
 class SaltGenerator
   VALID_SALT_CHARS = [
@@ -16,6 +17,7 @@ class SaltGenerator
 end
 
 class Mkpasswd < Sinatra::Base
+  use Rack::SSL
   set :public, File.expand_path("../public", __FILE__)
 
   get "/" do
