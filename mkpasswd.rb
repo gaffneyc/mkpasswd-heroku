@@ -16,6 +16,7 @@ class SaltGenerator
 end
 
 class Mkpasswd < Sinatra::Base
+  set :public, File.expand_path("../public", __FILE__)
 
   get "/" do
     File.read(File.expand_path("../public/index.html", __FILE__))
