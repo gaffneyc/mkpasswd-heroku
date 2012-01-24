@@ -19,9 +19,6 @@ end
 class Mkpasswd < Sinatra::Base
   use Rack::SSL
 
-  set :root, File.expand_path("..", __FILE__)
-  set :public_folder, "public"
-
   get "/" do
     File.read(File.expand_path("../public/index.html", __FILE__))
   end
