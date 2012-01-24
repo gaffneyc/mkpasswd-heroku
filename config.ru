@@ -1,0 +1,2 @@
+require "./mkpasswd"
+run Mkpasswd
