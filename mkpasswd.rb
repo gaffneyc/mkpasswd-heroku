@@ -25,7 +25,7 @@ class Mkpasswd < Sinatra::Base
   end
 
   post "/" do
-    password = params[:password]
-    password.crypt("$6$#{SaltGenerator.generate}$")
+    salt = params[:password].crypt("$6$#{SaltGenerator.generate}$")
+    erb :salt, :locals => { :salt => salt }
   end
 end
