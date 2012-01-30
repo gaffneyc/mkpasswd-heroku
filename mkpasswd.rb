@@ -3,6 +3,7 @@ require "bundler/setup"
 require "sinatra/base"
 require "securerandom"
 require "rack/ssl"
+require "erubis"
 
 class SaltGenerator
   VALID_SALT_CHARS = [
@@ -20,7 +21,7 @@ class Mkpasswd < Sinatra::Base
   use Rack::SSL
 
   get "/" do
-    File.read(File.expand_path("../public/index.html", __FILE__))
+    erb :index
   end
 
   post "/" do
