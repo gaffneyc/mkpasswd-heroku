@@ -1,8 +1,7 @@
 source "https://rubygems.org"
 
-ruby "2.4.1"
+ruby "2.5.1"
 
+gem "puma"
 gem "rack-ssl"
 gem "sinatra"
-gem "erubis"
-gem "puma"

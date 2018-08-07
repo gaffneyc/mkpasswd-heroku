@@ -1,18 +1,17 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    erubis (2.7.0)
-    mustermann (1.0.0)
-    puma (3.10.0)
-    rack (2.0.3)
-    rack-protection (2.0.0)
+    mustermann (1.0.2)
+    puma (3.12.0)
+    rack (2.0.5)
+    rack-protection (2.0.3)
       rack
     rack-ssl (1.4.1)
       rack
-    sinatra (2.0.0)
+    sinatra (2.0.3)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.0)
+      rack-protection (= 2.0.3)
       tilt (~> 2.0)
     tilt (2.0.8)
 
@@ -20,13 +19,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  erubis
   puma
   rack-ssl
   sinatra
 
 RUBY VERSION
-   ruby 2.4.1p111
+   ruby 2.5.1p57
 
 BUNDLED WITH
-   1.15.4
+   1.16.3

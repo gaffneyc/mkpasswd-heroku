@@ -3,15 +3,14 @@ require "bundler/setup"
 require "sinatra/base"
 require "securerandom"
 require "rack/ssl"
-require "erubis"
 
 class SaltGenerator
   VALID_SALT_CHARS = [
-    ".", "/", (0..9).to_a, ("A".."Z").to_a, ("a".."z").to_a
+    ".", "/", (0..9).to_a, ("A".."Z").to_a, ("a".."z").to_a,
   ].flatten.map(&:to_s)
 
   def self.generate
-    16.times.map do |i|
+    16.times.map do
       VALID_SALT_CHARS[SecureRandom.random_number(VALID_SALT_CHARS.size)]
     end.join
   end
@@ -26,6 +25,6 @@ class Mkpasswd < Sinatra::Base
 
   post "/" do
     salt = params[:password].crypt("$6$#{SaltGenerator.generate}$")
-    erb :salt, :locals => { :salt => salt }
+    erb :salt, locals: { salt: salt }
   end
 end
